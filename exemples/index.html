@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spotify Wrapper Test</title>
+  <script src="../dist/spotify-wrapper.umd.js"></script>
+</head>
+<body>
+
+<div id="albums"></div>
+
+<script src="../dist/spotify-wrapper.umd.js"></script>
+
+<script>
+  const spotify = new SpotifyWrapper({
+    token: 'BQBLlJsW93U_E8UEkMC3n7VTG7GSOY6kQe1DrTpcQGYQ4GGFe8kQEg8TpZOL3C7zrhYs4LKNnebOZVS-Fbmdl6yM-9Y1ruPO3f0fnNuFbtGufr4hKQ871oS2kH43GdHsVZOrQOVvP3k1'
+  });
+  const albums = spotify.search.albums('Raimundos');
+  const albumsEl = document.getElementById('albums');
+  albums
+    .then(data => {
+      markup = data.albums.items.map(item =>
+        `<img src='${item.images[0].url}' alt='${item.name}' />`
+      ).join('');
+      albumsEl.innerHTML = markup;
+    })
+</script>
+</body>
+</html>
