@@ -4,7 +4,7 @@ import album from './album';
 import artist from './artist';
 import track from './track';
 
-import { API_URL } from './config';
+import API_URL from './config';
 import toJSON from './utils';
 
 export default class SpotifyWrapper {
